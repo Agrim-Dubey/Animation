@@ -1,42 +1,38 @@
+
 const canvas = document.getElementById("raincanvas");
 const brush = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
- 
-const raindrops=[];
+const raindrops = [];
+const totaldrops = 500;
+for (let i = 0; i < totaldrops; i++) {
+  raindrops.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    length: Math.random() * 20 + 10,
+    speed: Math.random() * 4 + 2,
+    opacity: Math.random() * 0.5 + 0.5
+  });
+}
 
-class drop {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.length = Math.random() * 20 + 10;
-    this.speed = Math.random() * 4 + 4;
-  }
+function drawingtherain() {
+  requestAnimationFrame(drawingtherain); 
+  brush.clearRect(0, 0, canvas.width, canvas.height);
 
-  fall() {
-    this.y += this.speed;
-    if (this.y > canvas.height) {
-      this.y = -this.length;
-      this.x = Math.random() * canvas.width;
+  for (let i = 0; i < raindrops.length; i++) {
+    const drop = raindrops[i];
+    brush.beginPath();
+    brush.strokeStyle = `rgba(173, 216, 230, ${drop.opacity})`;
+    brush.lineWidth = 1;
+    brush.moveTo(drop.x, drop.y);
+    brush.lineTo(drop.x, drop.y + drop.length); 
+    brush.stroke(); 
+    
+    drop.y += drop.speed; 
+    if (drop.y > canvas.height) { 
+      drop.y = -drop.length; 
+      drop.x = Math.random() * canvas.width;
     }
   }
-
-draw(){
-    brush.beginPath();
-    brush.strokeStyle="rgba(223, 223, 231, 0.6)";
-    brush.moveTo(this.x,this.y);
-    brush.lineTo(this.x,this.y+this.length);
-    brush.stroke();
-}}
-for(let i=0;i<500;i++){
-    raindrops.push(new drop());
 }
-function animation(){
-    requestAnimationFrame(animation);
-    brush.clearRect(0,0,canvas.width,canvas.height);
-    raindrops.forEach(drop=>{
-        drop.fall();
-        drop.draw();
-    });
-}
-animation();
+drawingtherain();
