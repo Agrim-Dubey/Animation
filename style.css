@@ -1,3 +1,7 @@
+body{
+  background: url("assets/backgrounf.jpeg") no-repeat center center fixed ;
+  background-size: cover;
+}
 body {
   margin: 0;
   padding: 0;
@@ -34,4 +38,5 @@ body {
 .option:hover {
   background-color: aqua;
   color: black;
+  transform: scale(1.2);
 }
