@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.first {
+  text-align: center;
+}
+.heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00ffff;
+}
+.buttongroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.option {
+  background-color: #bb5858;k
+  color: aqua;
+  border: 2px solid aqua;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.option:hover {
+  background-color: aqua;
+  color: black;
+}
