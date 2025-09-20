@@ -3,7 +3,7 @@ const brush = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 const snowflakes=[];
-const flakes = 600;
+let flakes = 600;
 for(let i=0;i<flakes;i++){
     snowflakes.push({
         x : Math.random()*canvas.width,
@@ -32,3 +32,19 @@ function drawingsnow(){
     requestAnimationFrame(drawingsnow);
 }
 drawingsnow();
+document.getElementById("intensity").addEventListener("click", () => {
+ const newsnow=150;
+ for(let i=0;i<newsnow;i++){
+    snowflakes.push({
+        x : Math.random()*canvas.width,
+        y : Math.random()*canvas.height,
+        radius : Math.random()*2,
+        speed : Math.random()*1+1,
+        drift: Math.random()*1-0.5
+    });
+ }
+ for(let flake of snowflakes ){
+    flake.speed+=1.5;
+ }
+    flakes +=newsnow;
+});

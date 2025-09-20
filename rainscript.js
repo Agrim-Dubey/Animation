@@ -4,7 +4,7 @@ const brush = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const raindrops = [];
-const totaldrops = 400;
+let totaldrops = 400;
 for (let i = 0; i < totaldrops; i++) {
   raindrops.push({
     x: Math.random() * canvas.width,
@@ -34,8 +34,18 @@ function drawingtherain() {
    requestAnimationFrame(drawingtherain); 
 }
 drawingtherain();
-document.getElementById("intensity").addEventListener("click",()=>{
-    totaldrops +=400;
-    speed +=1.5;
-    drawingtherain();
-})
+document.getElementById("intensity").addEventListener("click", () => {
+  const newDrops = 100;
+  for (let i = 0; i < newDrops; i++) {
+    raindrops.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      length: Math.random() * 20 + 10,
+      speed: Math.random() * 8 + 2,
+    });
+  }
+  for (let drop of raindrops) {
+    drop.speed += 1.5; 
+  }
+  totaldrops += newDrops;
+});
