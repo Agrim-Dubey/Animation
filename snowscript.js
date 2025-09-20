@@ -9,7 +9,7 @@ for(let i=0;i<flakes;i++){
         x : Math.random()*canvas.width,
         y : Math.random()*canvas.height,
         radius : Math.random()*2,
-        speed : Math.random()*2+2,
+        speed : Math.random()*1+1,
         drift: Math.random()*1-0.5 
     })
 }

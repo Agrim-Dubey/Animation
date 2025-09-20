@@ -13,7 +13,12 @@ body {
   height: 100vh;
 }
 .first {
-  text-align: center;
+ text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(7, 226, 250, 0.2);
+  box-shadow: 0 8px 20px rgb(239, 239, 239);
 }
 .heading {
   font-size: 2rem;
@@ -27,13 +32,16 @@ body {
   gap: 1rem;
 }
 .option {
-  background-color: #bb5858;k
-  color: aqua;
-  border: 2px solid aqua;
+  background-color: #080808;
+  color : aqua;
+  border : 2px solid aqua;
   padding: 1rem 2rem;
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
+  font-weight:bold;
+  box-shadow: #f1efef;
+  letter-spacing : 1px;
 }
 .option:hover {
   background-color: aqua;
