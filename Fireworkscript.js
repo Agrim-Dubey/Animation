@@ -36,3 +36,4 @@ canvas.width = window.innerWidth;
        brush.arc(x,tg)
     }
  })
+ 
