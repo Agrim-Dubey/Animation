@@ -3,13 +3,14 @@ const brush = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 const snowflakes=[];
-const flakes = 300;
+const flakes = 600;
 for(let i=0;i<flakes;i++){
     snowflakes.push({
         x : Math.random()*canvas.width,
         y : Math.random()*canvas.height,
         radius : Math.random()*2,
-        speed : Math.random()*2+2 
+        speed : Math.random()*2+2,
+        drift: Math.random()*1-0.5 
     })
 }
 function drawingsnow(){
@@ -21,6 +22,7 @@ function drawingsnow(){
         brush.fillStyle="rgba(255, 255, 255, 1)";
         brush.fill();
         flake.y+=flake.speed;
+        flake.x+=flake.drift;
         if(flake.y>canvas.height){
             flake.y= -flake.radius;
             flake.x=Math.random()*canvas.width;

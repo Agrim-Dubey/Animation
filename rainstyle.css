@@ -4,7 +4,7 @@
     font-size: 2rem;
 }
 body{
-    background:url(assets/rain.jpg) no-repeat center center fixed;
+    background:url(assets/rainbackkground.jpg) no-repeat center center fixed;
     background-size:cover;
 }
 body::before{
