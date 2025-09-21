@@ -4,11 +4,11 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let balls = [
   { 
-    x: (Math.random()*canvas.width), 
-    y: (Math.random()*canvas.height), 
-    vx: (Math.random()*3), 
-    vy: (Math.random()*3), 
-    r: (Math.random()*100), 
+    x: Math.random()*canvas.width, 
+    y: Math.random()*canvas.height, 
+    vx: Math.random()*3, 
+    vy: Math.random()*3, 
+    r: Math.random()*50, 
     color: "red" 
   }
 ];
@@ -30,7 +30,7 @@ function updateBall(b) {
 }
 
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  brush.clearRect(0, 0, canvas.width, canvas.height);
   balls.forEach(b => {
     updateBall(b);
     drawBall(b);
